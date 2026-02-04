@@ -1,0 +1,38 @@
+<form action="/CreateData">
+  <input type="hidden" name="id" placeholder="Enter your name" id="" /> <br />
+
+  <input type="text" name="name" placeholder="Enter your name" id="" /> <br />
+  <br />
+  <input type="text" name="surname" placeholder="Enter your name" id="" />
+  <br />
+  <br />
+  <input type="number" name="age" placeholder="Enter your Surname" id="" />
+  <br />
+  <br />
+  <button type="submit">Submit</button>
+</form>
+
+<table border="1" >
+      <tr>
+            <td >Name</td>                                      
+            <td>Surname</td>
+            <td>Age</td>
+            <td>Delete</td>
+            <td>Edit</td>
+      </tr>
+
+      <% data.map((i,index)=>{
+            %>
+            <tr>
+                  <td><%= i.name %></td>
+                  <td><%= i.surname %></td>
+                  <td><%= i.age %></td>
+                  <td>
+                    <button> <a href="/DeleteData/<%i.id%>">Delete</a></button>
+                  </td>
+                 
+            </tr>
+      <%      
+      })
+      %>
+</table>
