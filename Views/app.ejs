@@ -1,38 +1,45 @@
 <form action="/CreateData">
-  <input type="hidden" name="id" placeholder="Enter your name" id="" /> <br />
+  <input type="hidden" name="id" placeholder="Enter your name" value="<%=(Editdata)?Editdata.id:"" %>" /> <br /> 
 
-  <input type="text" name="name" placeholder="Enter your name" id="" /> <br />
+  <input type="text" name="name" placeholder="Enter your name" value="<%= (Editdata) ? Editdata.name:"" %>" /> <br />
   <br />
-  <input type="text" name="surname" placeholder="Enter your name" id="" />
+  <input type="text" name="surname" placeholder="Enter your Surname" value="<%= (Editdata) ?Editdata.surname:"" %>" />
   <br />
   <br />
-  <input type="number" name="age" placeholder="Enter your Surname" id="" />
+  <input type="number" name="age" placeholder="Enter your age" value="<%= (Editdata) ? Editdata.age:"" %>" />
   <br />
   <br />
   <button type="submit">Submit</button>
 </form>
 
-<table border="1" >
+<table border="1">
       <tr>
-            <td >Name</td>                                      
-            <td>Surname</td>
-            <td>Age</td>
-            <td>Delete</td>
-            <td>Edit</td>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Age</th>
+            <th>Delete</th>
+            <th>Edit</th>
       </tr>
 
-      <% data.map((i,index)=>{
+      <%data.map((i,index) =>{
             %>
             <tr>
-                  <td><%= i.name %></td>
-                  <td><%= i.surname %></td>
-                  <td><%= i.age %></td>
+                  <td>{<%=i.name %>}</td>
+                  <td>{<%=i.surname %>}</td>
+                  <td>{<%=i.age %>}</td>
                   <td>
-                    <button> <a href="/DeleteData/<%i.id%>">Delete</a></button>
+                  <button>
+                        <a href="/DeleteData/<%=i.id%>">Delete</a>
+                  </button>
                   </td>
-                 
+                    <td>
+                  <button>
+                        <a href="/Editdata/<%=i.id%>">Edit</a>
+                  </button>
+                  </td>
+                  
             </tr>
-      <%      
+      <%
       })
       %>
 </table>
